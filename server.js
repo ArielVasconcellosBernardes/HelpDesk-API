@@ -25,8 +25,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors({
   origin: (origin, callback) => {
-    const allowed = [process.env.FRONTEND_URL, 'http://localhost:3000', 'http://127.0.0.1:3000'];
-    if (!origin || allowed.filter(Boolean).includes(origin)) return callback(null, true);
+    const renderUrl = process.env.RENDER_EXTERNAL_URL || (process.env.RENDER_EXTERNAL_HOSTNAME
+      ? `https://${process.env.RENDER_EXTERNAL_HOSTNAME}`
+      : null);
+    const allowed = [process.env.FRONTEND_URL, renderUrl, 'http://localhost:3000', 'http://127.0.0.1:3000']
+      .filter(Boolean)
+      .map((url) => url.replace(/\/$/, ''));
+    if (!origin || allowed.includes(origin.replace(/\/$/, ''))) return callback(null, true);
     return callback(new Error('CORS nao permitido'));
   },
   credentials: true
