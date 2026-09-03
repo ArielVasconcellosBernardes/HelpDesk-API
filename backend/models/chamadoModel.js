@@ -2,7 +2,7 @@ const { pool } = require('../config/database');
 
 async function create(data) {
   const [result] = await pool.execute(
-    'INSERT INTO chamados (titulo, descricao, status, prioridade, usuario_id) VALUES (?, ?, ?, ?, ?)',
+    'INSERT INTO chamados (titulo, descricao, status, prioridade, usuario_id) VALUES (?, ?, ?, ?, ?) RETURNING id',
     [data.titulo, data.descricao, data.status, data.prioridade, data.usuario_id]
   );
   return result.insertId;
@@ -40,7 +40,7 @@ async function findAllForTechnician() {
      FROM chamados c
      INNER JOIN usuarios u ON u.id = c.usuario_id
      LEFT JOIN usuarios t ON t.id = c.tecnico_id
-     ORDER BY FIELD(c.status, 'Aberto', 'Em Atendimento', 'Concluído'), c.created_at DESC`
+     ORDER BY CASE c.status WHEN 'Aberto' THEN 1 WHEN 'Em Atendimento' THEN 2 WHEN 'Concluído' THEN 3 ELSE 4 END, c.created_at DESC`
   );
   return rows;
 }

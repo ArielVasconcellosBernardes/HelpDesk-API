@@ -2,7 +2,7 @@ const { pool } = require('../config/database');
 
 async function create({ chamado_id, usuario_id, mensagem }) {
   const [result] = await pool.execute(
-    'INSERT INTO comentarios_chamado (chamado_id, usuario_id, mensagem) VALUES (?, ?, ?)',
+    'INSERT INTO comentarios_chamado (chamado_id, usuario_id, mensagem) VALUES (?, ?, ?) RETURNING id',
     [chamado_id, usuario_id, mensagem]
   );
   return result.insertId;

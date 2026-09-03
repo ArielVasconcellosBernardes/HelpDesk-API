@@ -6,7 +6,7 @@ Sistema HelpDesk com API REST e front-end em um unico projeto.
 
 - Node.js
 - Express
-- MySQL
+- PostgreSQL
 - bcryptjs
 - jsonwebtoken
 - express-validator
@@ -66,7 +66,7 @@ npm start
 
 ## Deploy
 
-Configure no Render:
+Configure no Render (PostgreSQL):
 
 - `DB_HOST`
 - `DB_PORT`
@@ -75,5 +75,6 @@ Configure no Render:
 - `DB_NAME`
 - `JWT_SECRET`
 - `FRONTEND_URL`
+- `DB_SSL` (`true` quando exigido pelo provedor)
 
 O front-end é servido pelo próprio Express.
