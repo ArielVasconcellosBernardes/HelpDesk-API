@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/css/style.css"><title>Chamado</title></head>
+<body>
+<main>
+  <div class="card">
+    <h1>Detalhes do chamado</h1>
+    <div id="detalhes"></div>
+    <div id="acoesTecnico"></div>
+    <form id="formComentario">
+      <label for="mensagem">Comentario</label>
+      <textarea id="mensagem" placeholder="Escreva um comentario" required></textarea>
+      <button class="button button-primary">Enviar</button>
+    </form>
+    <div id="comentarios"></div>
+  </div>
+</main>
+<script src="/js/api.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/chamado.js"></script>
+</body></html>

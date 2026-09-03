@@ -1,0 +1,25 @@
+body { font-family: Arial, sans-serif; margin: 0; background: #f5f7fb; color: #1f2937; }
+header, nav { background: #111827; color: white; padding: 16px 20px; }
+nav a, nav button, a { color: inherit; margin-right: 12px; text-decoration: none; cursor: pointer; }
+main { max-width: 1100px; margin: 0 auto; padding: 20px; }
+.grid { display: grid; gap: 16px; }
+.cards { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.card, form, .panel { background: white; border-radius: 10px; padding: 16px; box-shadow: 0 4px 16px rgba(0,0,0,.08); }
+label { display: block; margin: 8px 0 4px; font-size: 13px; font-weight: 700; color: #334155; }
+input, select, textarea, button { width: 100%; padding: 11px 12px; margin: 4px 0 12px; box-sizing: border-box; }
+button, .button { background: #2563eb; color: white; border: 1px solid #1d4ed8; border-radius: 8px; cursor: pointer; font-weight: 700; transition: background .2s, transform .2s, box-shadow .2s; }
+button:hover, .button:hover { background: #1d4ed8; box-shadow: 0 4px 10px rgba(37,99,235,.25); transform: translateY(-1px); }
+button:disabled { opacity: .65; cursor: wait; transform: none; }
+.button-secondary { width: auto; margin: 0; padding: 8px 18px; background: transparent; border-color: #94a3b8; }
+.button-secondary:hover { background: #1e293b; border-color: #fff; }
+main a:not(.button) { color: #1d4ed8; font-weight: 700; }
+main a:not(.button):hover { text-decoration: underline; }
+.muted { color: #6b7280; }
+.badge { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12px; }
+.status-aberto { background: #dbeafe; color: #1d4ed8; }
+.status-em-atendimento { background: #fef3c7; color: #b45309; }
+.status-concluido { background: #dcfce7; color: #15803d; }
+.priority-alta, .priority-urgente { font-weight: 700; }
+table { width: 100%; border-collapse: collapse; background: white; }
+th, td { border-bottom: 1px solid #e5e7eb; padding: 10px; text-align: left; }
+@media (max-width: 700px) { table, thead, tbody, th, td, tr { display: block; } thead { display: none; } td { border: 0; } }
